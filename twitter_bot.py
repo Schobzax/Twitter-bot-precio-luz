@@ -98,6 +98,4 @@ tuit_content = ("Buenos días💡 Estos son los precios de hoy día "+(date.toda
                "Precio máximo de España: "+precioLuzMaximo+" €/mWh - "+recordMax+"\n"
                "\n#PrecioLuz")
 
-print(tuit_content)
-
-###api.update_status(tuit_content) #-> El Tuiterino
+api.update_status(tuit_content) #-> El Tuiterino
