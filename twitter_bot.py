@@ -20,7 +20,11 @@ print(os.getcwd())
 os.chdir(credenciales.workdir)
 print(os.getcwd())
 
-driver = webdriver.Chrome("chromedriver.exe")
+opciones = webdriver.ChromeOptions()
+
+opciones.add_argument('headless')
+
+driver = webdriver.Chrome("chromedriver.exe", options=opciones)
 
 precioLuzMedio = 0; # id="spain_average";
 precioLuzMaximo = 0; # id="spain_max";
@@ -94,8 +98,10 @@ with open('twitter_bot.json','w') as json_file:
 
 #Composición del tuit
 tuit_content = ("Buenos días💡 Estos son los precios de hoy día "+(date.today()).strftime("%d/%m/%Y")+" para España:\n"
-               "Precio medio de España: "+precioLuzMedio+" €/mWh - "+recordMedia+"\n"
-               "Precio máximo de España: "+precioLuzMaximo+" €/mWh - "+recordMax+"\n"
+               "Precio medio: "+precioLuzMedio+" €/mWh - "+recordMedia+"\n"
+               "Precio máximo: "+precioLuzMaximo+" €/mWh - "+recordMax+"\n"
                "\n#PrecioLuz")
 
-api.update_status(tuit_content) #-> El Tuiterino
+print(tuit_content)
+
+#api.update_status(tuit_content) #-> El Tuiterino
